@@ -57,20 +57,22 @@ const calculate = (event) => {
   const results = document.getElementById("results");
 
   // display interest
-  const interest = document.createElement("P");
-  interest.innerHTML = interestArr.toString().replaceAll(",", " ");
-  results.append(interest);
+  let interest;
+  results.append("interest each year");
+  for (let i = 0; i < balanceArr.length; i++) {
+    interest = document.createElement("P");
+    interest.innerHTML = `Year${i + 1} $${interestArr[i]}`;
+    results.append(interest);
+  }
 
   //display balance
   let balance;
-  //
-  results.append("balance each year");
+  results.append("balance at start of each year");
   for (let i = 0; i < balanceArr.length; i++) {
     balance = document.createElement("P");
     balance.innerHTML = `Year${i + 1} $${balanceArr[i]}`;
     results.append(balance);
   }
-  // results.append(balance);
 };
 
 calcButton.addEventListener("click", calculate);

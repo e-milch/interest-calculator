@@ -62,9 +62,15 @@ const calculate = (event) => {
   results.append(interest);
 
   //display balance
-  const balance = document.createElement("P");
-  balance.innerHTML = balanceArr.toString().replaceAll(",", " ");
-  results.append(balance);
+  let balance;
+  //
+  results.append("balance each year");
+  for (let i = 0; i < balanceArr.length; i++) {
+    balance = document.createElement("P");
+    balance.innerHTML = `Year${i + 1} $${balanceArr[i]}`;
+    results.append(balance);
+  }
+  // results.append(balance);
 };
 
 calcButton.addEventListener("click", calculate);

@@ -53,10 +53,18 @@ const calculate = (event) => {
 
   console.log(`interest: ${interestArr}`);
   console.log(balanceArr);
+
   const results = document.getElementById("results");
+
+  // display interest
   const interest = document.createElement("P");
   interest.innerHTML = interestArr.toString().replaceAll(",", " ");
   results.append(interest);
+
+  //display balance
+  const balance = document.createElement("P");
+  balance.innerHTML = balanceArr.toString().replaceAll(",", " ");
+  results.append(balance);
 };
 
 calcButton.addEventListener("click", calculate);
